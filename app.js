@@ -22,6 +22,8 @@ var app = express();
 app.set('port', process.env.PORT || 5000);
 app.set('view engine', 'ejs');
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
+// app.use(bodyParser.json()); // for parsing application/json
+// app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static('public'));
 
 /*
@@ -55,6 +57,17 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
   process.exit(1);
 }
+
+/*----------------------Custom Code-----------------------------*/
+// app.post('/send', function (req, res) {
+//   var data = req.body;
+//   console.log('aa'+req);
+//   console.log(req.body);
+//   res.json(req.body);
+// });
+
+/*---------------------------------------------------*/
+
 
 /*
  * Use your own validation token. Check that the token used in the Webhook 
@@ -198,7 +211,7 @@ function receivedAuthentication(event) {
 
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
-  sendTextMessage(senderID, "Authentication successful");
+  sendTextMessage(senderID, "Hi there! Welcome to Shilp'16!! Stay connected to learn more about variety of events, guest lectures and competitions planned this year. Type help {name of event} to get their specific details.");
 }
 
 /*
@@ -254,61 +267,76 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches any special
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
+    var messageReply = "";
     switch (messageText) {
-      case 'image':
-        sendImageMessage(senderID);
-        break;
+      case 'help shilp':
+          messageReply = "Shilp is the Technical festival of Department of Civil Engineering, IIT (BHU), Varanasi, conducted by its CES (Civil Engineering Society). It aims to create learning and innovative environment and simultaneously presenting you various abstruse work problems, which will compel you to squeeze all your knowledge and the same time enriching yourself with new skills.";
+          sendTextMessage(senderID, messageReply);
+          break;
+      case 'help conclave':
+          messageReply = "Conclave is an event which will be held for the very first time in SHILP. In this event, we will organize a meet which will be presided by a panel of 6 members, each of which will be an expert in their respective fields, relating to the topic of discussion. The topic of the discussion in the conclave will be 'River Water Rejuvenation'.";
+          sendTextMessage(senderID, messageReply);
+          break;
 
-      case 'gif':
-        sendGifMessage(senderID);
-        break;
+      case 'help idp':
+            messageReply = "Industrial Development Problem is a event where you'll explore the ideas for solving the technological challenges faced by industries."
+            sendTextMessage(senderID, messageReply);
+          break;
 
-      case 'audio':
-        sendAudioMessage(senderID);
-        break;
+      // case 'image':
+      //   sendImageMessage(senderID);
+      //   break;
 
-      case 'video':
-        sendVideoMessage(senderID);
-        break;
+      // case 'gif':
+      //   sendGifMessage(senderID);
+      //   break;
 
-      case 'file':
-        sendFileMessage(senderID);
-        break;
+      // case 'audio':
+      //   sendAudioMessage(senderID);
+      //   break;
 
-      case 'button':
-        sendButtonMessage(senderID);
-        break;
+      // case 'video':
+      //   sendVideoMessage(senderID);
+      //   break;
 
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
+      // case 'file':
+      //   sendFileMessage(senderID);
+      //   break;
 
-      case 'receipt':
-        sendReceiptMessage(senderID);
-        break;
+      // case 'button':
+      //   sendButtonMessage(senderID);
+      //   break;
 
-      case 'quick reply':
-        sendQuickReply(senderID);
-        break;        
+      // case 'generic':
+      //   sendGenericMessage(senderID);
+      //   break;
 
-      case 'read receipt':
-        sendReadReceipt(senderID);
-        break;        
+      // case 'receipt':
+      //   sendReceiptMessage(senderID);
+      //   break;
 
-      case 'typing on':
-        sendTypingOn(senderID);
-        break;        
+      // case 'quick reply':
+      //   sendQuickReply(senderID);
+      //   break;        
 
-      case 'typing off':
-        sendTypingOff(senderID);
-        break;        
+      // case 'read receipt':
+      //   sendReadReceipt(senderID);
+      //   break;        
 
-      case 'account linking':
-        sendAccountLinking(senderID);
-        break;
+      // case 'typing on':
+      //   sendTypingOn(senderID);
+      //   break;        
 
-      default:
-        sendTextMessage(senderID, messageText);
+      // case 'typing off':
+      //   sendTypingOff(senderID);
+      //   break;        
+
+      // case 'account linking':
+      //   sendAccountLinking(senderID);
+      //   break;
+
+      // default:
+      //   sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -363,7 +391,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  sendTextMessage(senderID, "Hi there! Welcome to Shilp'16!! Stay connected to learn more about variety of events, guest lectures and competitions planned this year. Type help {name of event} to get their specific details.");
 }
 
 /*

@@ -270,11 +270,11 @@ function receivedMessage(event) {
     var messageReply = "";
     switch (messageText) {
       case 'help shilp':
-          messageReply = "Shilp is the Technical festival of Department of Civil Engineering, IIT (BHU), Varanasi, conducted by its CES (Civil Engineering Society). It aims to create learning and innovative environment and simultaneously presenting you various abstruse work problems, which will compel you to squeeze all your knowledge and the same time enriching yourself with new skills.";
+          messageReply = "Shilp is the Technical festival of Department of Civil Engineering, IIT (BHU), Varanasi, conducted by its CES (Civil Engineering Society).";
           sendTextMessage(senderID, messageReply);
           break;
       case 'help conclave':
-          messageReply = "Conclave is an event which will be held for the very first time in SHILP. In this event, we will organize a meet which will be presided by a panel of 6 members, each of which will be an expert in their respective fields, relating to the topic of discussion. The topic of the discussion in the conclave will be 'River Water Rejuvenation'.";
+          messageReply = "Conclave is an event where we will organize a meet which will be presided by a panel of 6 members, relating to the topic of discussion 'River Water Rejuvenation'.";
           sendTextMessage(senderID, messageReply);
           break;
 

@@ -311,9 +311,9 @@ function receivedMessage(event) {
       //   sendGenericMessage(senderID);
       //   break;
 
-      // case 'receipt':
-      //   sendReceiptMessage(senderID);
-      //   break;
+      case 'my receipt':
+        sendReceiptMessage(senderID);
+        break;
 
       // case 'quick reply':
       //   sendQuickReply(senderID);
@@ -664,25 +664,18 @@ function sendReceiptMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "receipt",
-          recipient_name: "Peter Chang",
+          recipient_name: "Mayur Dhurpate",
           order_number: receiptId,
           currency: "USD",
           payment_method: "Visa 1234",        
           timestamp: "1428444852", 
           elements: [{
-            title: "Oculus Rift",
-            subtitle: "Includes: headset, sensor, remote",
+            title: "Conclave",
+            subtitle: "Includes: lunch, stay",
             quantity: 1,
             price: 599.00,
             currency: "USD",
-            image_url: SERVER_URL + "/assets/riftsq.png"
-          }, {
-            title: "Samsung Gear VR",
-            subtitle: "Frost White",
-            quantity: 1,
-            price: 99.99,
-            currency: "USD",
-            image_url: SERVER_URL + "/assets/gearvrsq.png"
+            image_url: SERVER_URL + "/assets/sc.png"
           }],
           address: {
             street_1: "1 Hacker Way",
@@ -693,10 +686,10 @@ function sendReceiptMessage(recipientId) {
             country: "US"
           },
           summary: {
-            subtotal: 698.99,
-            shipping_cost: 20.00,
-            total_tax: 57.67,
-            total_cost: 626.66
+            subtotal: 599,
+            shipping_cost: 0.00,
+            total_tax: 0.00,
+            total_cost: 599.00
           },
           adjustments: [{
             name: "New Customer Discount",

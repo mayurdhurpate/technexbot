@@ -212,6 +212,8 @@ function receivedAuthentication(event) {
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
   sendTextMessage(senderID, "Hi there! Welcome to Shilp'16!! Stay connected to learn more about variety of events, guest lectures and competitions planned this year. Type help {name of event} to get their specific details.");
+  sendTextMessage(senderID,"Also, I can remind you about Shilp payments, so that you don't miss a deadline. Reply 'get reminders' if you want to be reminded.");
+
 }
 
 /*
@@ -311,8 +313,14 @@ function receivedMessage(event) {
       //   sendGenericMessage(senderID);
       //   break;
 
-      case 'my receipt':
-        sendReceiptMessage(senderID);
+      case 'get reminders':
+          messageReply = "Payment reminders will be sent 2 days prior to the deadline. To stop recieving reminders, simply reply 'stop reminders'. Be Shilpified!!"
+          sendTextMessage(senderID, messageReply);
+        break;
+
+      ase 'stop reminders':
+          messageReply = "Payment reminders stopped for your account."
+          sendTextMessage(senderID, messageReply);
         break;
 
       // case 'quick reply':

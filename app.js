@@ -314,12 +314,12 @@ function receivedMessage(event) {
       //   break;
 
       case 'get reminders':
-          messageReply = "Payment reminders will be sent 2 days prior to the deadline. To stop recieving reminders, simply reply 'stop reminders'. Be Shilpified!!"
+          messageReply = "Payment reminders will be sent 2 days prior to the deadline. To stop recieving reminders, simply reply 'stop reminders'. Be Shilpified!!";
           sendTextMessage(senderID, messageReply);
         break;
 
-      ase 'stop reminders':
-          messageReply = "Payment reminders stopped for your account."
+      case 'stop reminders':
+          messageReply = "Payment reminders stopped for your account.";
           sendTextMessage(senderID, messageReply);
         break;
 

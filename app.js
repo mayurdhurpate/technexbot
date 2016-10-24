@@ -271,8 +271,8 @@ function receivedMessage(event) {
     // the text we received.
     var messageReply = "";
     switch (messageText) {
-      case 'help shilp':
-          messageReply = "Shilp is the Technical festival of Department of Civil Engineering, IIT (BHU), Varanasi, conducted by its CES (Civil Engineering Society).";
+      case 'help technex':
+          messageReply = "A techno-managment fest organized every year within the dimensions of Indian Institute of Technology (BHU) located in the state of Varanasi, to satisfy the ever growing hunger for technological evolution and knowledge of the tech-savvy saints of innovation a.k.a the engineers. Discover the zest of giving life to ideas, discover the engineer in you.";
           sendTextMessage(senderID, messageReply);
           break;
       case 'help conclave':

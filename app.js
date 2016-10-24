@@ -272,7 +272,7 @@ function receivedMessage(event) {
     var messageReply = "";
     switch (messageText) {
       case 'help technex':
-          messageReply = "A techno-managment fest organized every year within the dimensions of Indian Institute of Technology (BHU) located in the state of Varanasi, to satisfy the ever growing hunger for technological evolution and knowledge of the tech-savvy saints of innovation a.k.a the engineers. Discover the zest of giving life to ideas, discover the engineer in you.";
+          messageReply = "A techno-managment fest organized every year within the dimensions of Indian Institute of Technology (BHU) located in the state of Varanasi";
           sendTextMessage(senderID, messageReply);
           break;
       case 'help conclave':
@@ -343,8 +343,8 @@ function receivedMessage(event) {
       //   sendAccountLinking(senderID);
       //   break;
 
-      default:
-        sendTextMessage(senderID, messageText);
+      // default:
+      //   sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");

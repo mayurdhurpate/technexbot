@@ -211,9 +211,10 @@ function receivedAuthentication(event) {
 
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
-  sendTextMessage(senderID, "Hi there! Welcome to Shilp'16!! Stay connected to learn more about variety of events, guest lectures and competitions planned this year. Type help {name of event} to get their specific details.");
-  sendTextMessage(senderID,"Also, I can remind you about Shilp payments, so that you don't miss a deadline. Reply 'get reminders' if you want to be reminded.");
-
+  sendTypingOn(senderID);
+  sendTextMessage(senderID, "Hi there! Welcome to Technex'17!! Stay connected to learn more about variety of events, think talks, exhibitions and pronites planned this year.");
+  sendTextMessage(senderID,"We'll keep you updated! Thank you for connecting with us. If you have any queries, feel free to ask here. :)");
+  sendTypingOff(senderID);
 }
 
 /*
@@ -272,18 +273,18 @@ function receivedMessage(event) {
     var messageReply = "";
     switch (messageText) {
       case 'help technex':
-          messageReply = "A techno-managment fest organized every year within the dimensions of Indian Institute of Technology (BHU) located in the state of Varanasi";
+          messageReply = "The annual techno-management fest organized every year within the dimensions of Indian Institute of Technology (BHU) located in the state of Varanasi!";
           sendTextMessage(senderID, messageReply);
           break;
-      case 'help conclave':
-          messageReply = "Conclave is an event where we will organize a meet which will be presided by a panel of 6 members, relating to the topic of discussion 'River Water Rejuvenation'.";
-          sendTextMessage(senderID, messageReply);
-          break;
+      // case 'help conclave':
+      //     messageReply = "Conclave is an event where we will organize a meet which will be presided by a panel of 6 members, relating to the topic of discussion 'River Water Rejuvenation'.";
+      //     sendTextMessage(senderID, messageReply);
+      //     break;
 
-      case 'help idp':
-            messageReply = "Industrial Development Problem is a event where you'll explore the ideas for solving the technological challenges faced by industries."
-            sendTextMessage(senderID, messageReply);
-          break;
+      // case 'help idp':
+      //       messageReply = "Industrial Development Problem is a event where you'll explore the ideas for solving the technological challenges faced by industries."
+      //       sendTextMessage(senderID, messageReply);
+      //     break;
 
       // case 'image':
       //   sendImageMessage(senderID);
@@ -313,15 +314,15 @@ function receivedMessage(event) {
       //   sendGenericMessage(senderID);
       //   break;
 
-      case 'get reminders':
-          messageReply = "Payment reminders will be sent 2 days prior to the deadline. To stop recieving reminders, simply reply 'stop reminders'. Be Shilpified!!";
-          sendTextMessage(senderID, messageReply);
-        break;
+      // case 'get reminders':
+      //     messageReply = "Payment reminders will be sent 2 days prior to the deadline. To stop recieving reminders, simply reply 'stop reminders'. Be Shilpified!!";
+      //     sendTextMessage(senderID, messageReply);
+      //   break;
 
-      case 'stop reminders':
-          messageReply = "Payment reminders stopped for your account.";
-          sendTextMessage(senderID, messageReply);
-        break;
+      // case 'stop reminders':
+      //     messageReply = "Payment reminders stopped for your account.";
+      //     sendTextMessage(senderID, messageReply);
+      //   break;
 
       // case 'quick reply':
       //   sendQuickReply(senderID);
@@ -399,7 +400,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  sendTextMessage(senderID, "Hi there! Welcome to Shilp'16!! Stay connected to learn more about variety of events, guest lectures and competitions planned this year. Type help {name of event} to get their specific details.");
+  sendTextMessage(senderID, "Hi there! Welcome to Technex'17!! Stay connected to learn more about variety of events, think talks, exhibitions and pronites planned this year.");
 }
 
 /*

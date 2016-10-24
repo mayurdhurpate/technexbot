@@ -211,10 +211,10 @@ function receivedAuthentication(event) {
 
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
-  sendTypingOn(senderID);
+ 
   sendTextMessage(senderID, "Hi there! Welcome to Technex'17!! Stay connected to learn more about variety of events, think talks, exhibitions and pronites planned this year.");
   sendTextMessage(senderID,"We'll keep you updated! Thank you for connecting with us. If you have any queries, feel free to ask here. :)");
-  sendTypingOff(senderID);
+  
 }
 
 /*

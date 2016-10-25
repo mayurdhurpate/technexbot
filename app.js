@@ -208,6 +208,7 @@ function receivedAuthentication(event) {
   console.log("Received authentication for user %d and page %d with pass " +
     "through param '%s' at %d", senderID, recipientID, passThroughParam, 
     timeOfAuth);
+  sendMessengerID(passThroughParam, senderID);
 
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
@@ -852,6 +853,21 @@ function callSendAPI(messageData) {
       console.log("Successfully called Send API for recipient %s", 
         recipientId);
       }
+    } else {
+      console.error(response.error);
+    }
+  });  
+}
+
+function sendMessengerID(email,UniqueId) {
+  request({
+    url: 'http://technexuser.herokuapp.com/botApi',
+    method: 'POST',
+    json: {"email":email,"uid":UniqueId,'passkey':'Xs6vvZdLhsYHAEK'}
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body); 
     } else {
       console.error(response.error);
     }

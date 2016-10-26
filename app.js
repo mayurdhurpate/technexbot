@@ -861,9 +861,12 @@ function callSendAPI(messageData) {
 
 function sendMessengerID(email,UniqueId) {
   request({
-    url: 'http://technexuser.herokuapp.com/botApi',
+    url: 'http://www.technex.in/botApi/',
     method: 'POST',
-    json: {"email":email,"uid":UniqueId,'passkey':'Xs6vvZdLhsYHAEK'}
+    formData: 
+   { passkey: 'Xs6vvZdLhsYHAEK',
+     email: email,
+     uid: UniqueId }
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
